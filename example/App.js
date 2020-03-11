@@ -37,6 +37,9 @@ export default class App extends Component{
             <RNEasyDialog
               layoutVal={this.state.layVal}
               content={this.getContent()}
+              positionStyle={'center'}
+              paddingInterval={5}
+              maxWidth={250}
               backdropColor={'rgba(0,0,0,.2)'}
             >
               <Text>点击</Text>
@@ -53,7 +56,6 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   dialog_con: {
-    width:40,
     height:60,
     justifyContent: 'center',
     alignItems: 'center'

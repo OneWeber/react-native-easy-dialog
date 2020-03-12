@@ -33,6 +33,51 @@
   	```
       compile project(':react-native-easy-dialog')
   	```
+## Show some message    
+  ```js
+  import React,{Component} from 'react';
+  import {
+  StyleSheet,
+  View,
+  Text,
+} from 'react-native';
+import RNEasyDialog from 'react-native-easy-dialog';
+export default class EasyDialog extends Component{
+  state={
+    layVal: 0
+  }
+  layout(e) {
+    this.setState({
+      layVal: parseInt(e.layout.y)
+    })
+  }
+  getContent() {
+    return <View>
+        <Text>这是弹框区域</Text>
+    </View>
+  }
+  render(){
+    return(
+      <View style={{flex: 1,justifyContent: 'center',alignItems: 'center'}}>
+          <View onLayout={({nativeEvent:e})=> this.layout(e)} >
+            <RNEasyDialog
+              layoutVal={this.state.layVal}
+              content={this.getContent()}
+              positionStyle={'center'}
+              paddingInterval={5}
+              maxWidth={250}
+              backdropColor={'rgba(0,0,0,.2)'}
+            >
+              <Text>点击内容区域</Text>
+            </RNEasyDialog>
+          </View>
+        </View>
+    )
+  }
+}
+   ``` 
+    
+    
 ## Props
 
 Property | Default | Description

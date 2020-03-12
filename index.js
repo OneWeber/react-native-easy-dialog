@@ -20,7 +20,8 @@ export default class RNEasyDialog extends Component{
         arrowSize: PropTypes.number,
         paddingInterval: PropTypes.number,
         maxWidth: PropTypes.number,
-        contentPadding: PropTypes.number
+        contentPadding: PropTypes.number,
+        positionStyle: PropTypes.string
     }
     static defaultProps = {
         layoutVal: 0,
@@ -29,7 +30,8 @@ export default class RNEasyDialog extends Component{
         arrowSize: 36,
         paddingInterval: 0,
         maxWidth: 200,
-        contentPadding: 5
+        contentPadding: 5,
+        positionStyle: 'center'
     }
     constructor(props) {
         super(props);

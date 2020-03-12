@@ -1,6 +1,10 @@
 
 # react-native-easy-dialog
 
+![GitHub set up](https://github.com/OneWeber/react-native-easy-dialog/raw/master/logo/left.jpg)
+![GitHub set up](https://github.com/OneWeber/react-native-easy-dialog/raw/master/logo/center.jpg)
+![GitHub set up](https://github.com/OneWeber/react-native-easy-dialog/raw/master/logo/right.jpg)
+
 ## Getting started
 
 `$ npm install react-native-easy-dialog --save`

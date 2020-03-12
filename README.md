@@ -33,7 +33,20 @@
   	```
       compile project(':react-native-easy-dialog')
   	```
+## Props
 
+Property | Default | Description
+--------- | ------------- | ------------
+layoutVal | 0 | If there is a parent component package, it is the layout. Y of the parent component; if not, it is its own
+content |  | This triggers the content region of modal
+interval | 5 | The distance between the content area of the pop-up box and the content area of this article
+backdropColor | "rgba(0,0,0,.1)" | Shadow layer background color
+style | | Custom style
+arrowSize| 36 | The size of the arrow
+paddingInterval| 0 | The distance between the left and right sides of the frame
+maxWidth | 200 | Maximum width of the frame
+contentPadding | 5 | The inner margin of the content area of the pop-up box
+positionStyle | 'center' | The position where the bounding box is located, including "center","left","right"
 
 ## Usage
 ```javascript

@@ -5,6 +5,10 @@
 ![GitHub set up](https://github.com/OneWeber/react-native-easy-dialog/raw/master/logo/center.jpg)
 ![GitHub set up](https://github.com/OneWeber/react-native-easy-dialog/raw/master/logo/right.jpg)
 
+## Attention
+    When using this component, you need to download [react-native-vector-icons](https://oblador.github.io/react-native-vector-icons/)
+    
+    
 ## Getting started
 
 `$ npm install react-native-easy-dialog --save`

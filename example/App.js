@@ -8,12 +8,9 @@
 
 import React,{Component} from 'react';
 import {
-  SafeAreaView,
   StyleSheet,
-  ScrollView,
   View,
   Text,
-  StatusBar,
 } from 'react-native';
 import RNEasyDialog from 'react-native-easy-dialog';
 export default class App extends Component{
@@ -27,24 +24,51 @@ export default class App extends Component{
   }
   getContent() {
     return <View style={styles.dialog_con}>
-        <Text>哈哈哈</Text>
+        <Text>😄😄😄😄😄😄😄😄😄😄😄😄😄😄😄</Text>
     </View>
   }
   render() {
     return (
         <View style={styles.conatiner}>
-          <View onLayout={({nativeEvent:e})=> this.layout(e)} >
-            <RNEasyDialog
-              layoutVal={this.state.layVal}
-              content={this.getContent()}
-              positionStyle={'center'}
-              paddingInterval={5}
-              maxWidth={250}
-              backdropColor={'rgba(0,0,0,.2)'}
-            >
-              <Text>点击</Text>
-            </RNEasyDialog>
+          <View onLayout={({nativeEvent:e})=> this.layout(e)} style={{flexDirection:'row', justifyContent:'space-between',alignItems: 'center',width: '100%'}}>
+            <View>
+              <RNEasyDialog
+                  layoutVal={this.state.layVal}
+                  content={this.getContent()}
+                  positionStyle={'left'}
+                  paddingInterval={5}
+                  maxWidth={250}
+                  backdropColor={'rgba(0,0,0,.2)'}
+              >
+                <Text>点击左边内容区域</Text>
+              </RNEasyDialog>
+            </View>
+            <View>
+              <RNEasyDialog
+                  layoutVal={this.state.layVal}
+                  content={this.getContent()}
+                  positionStyle={'center'}
+                  paddingInterval={5}
+                  maxWidth={250}
+                  backdropColor={'rgba(0,0,0,.2)'}
+              >
+                <Text>点击内容区域</Text>
+              </RNEasyDialog>
+            </View>
+            <View>
+              <RNEasyDialog
+                  layoutVal={this.state.layVal}
+                  content={this.getContent()}
+                  positionStyle={'right'}
+                  paddingInterval={5}
+                  maxWidth={250}
+                  backdropColor={'rgba(0,0,0,.2)'}
+              >
+                <Text>点击内容区域</Text>
+              </RNEasyDialog>
+            </View>
           </View>
+
         </View>
     )
   }

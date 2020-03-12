@@ -1,6 +1,13 @@
-
 import React, {Component} from 'react';
-import {StyleSheet, View, Text, Modal, TouchableOpacity, DeviceInfo, ViewPropTypes} from 'react-native'
+import {
+    StyleSheet,
+    View,
+    Text,
+    Modal,
+    TouchableOpacity,
+    DeviceInfo,
+    ViewPropTypes
+} from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import {PropTypes} from 'prop-types'
 export default class RNEasyDialog extends Component{
@@ -10,18 +17,25 @@ export default class RNEasyDialog extends Component{
         interval: PropTypes.number,
         backdropColor: PropTypes.string,
         style: ViewPropTypes.style,
-        arrowSize: PropTypes.number
+        arrowSize: PropTypes.number,
+        paddingInterval: PropTypes.number,
+        maxWidth: PropTypes.number,
+        contentPadding: PropTypes.number
     }
     static defaultProps = {
         layoutVal: 0,
         interval: 5,
         backdropColor: 'rgba(0,0,0,.1)',
-        arrowSize: 36
+        arrowSize: 36,
+        paddingInterval: 0,
+        maxWidth: 200,
+        contentPadding: 5
     }
     constructor(props) {
         super(props);
         this.state = {
-            visible: false
+            visible: false,
+            arrowPosition: 'center'
         }
     }
     show() {
@@ -36,39 +50,64 @@ export default class RNEasyDialog extends Component{
     }
     getContent(data) {
         return <View>
-        {data ? data : null}
+            {data ? data : null}
         </View>
     }
     render(){
-        const {onClose, onSelect} = this.props
+        const {onClose} = this.props
         return(
             <View>
-            <TouchableOpacity
-        onPress={() => this.show()}
-    >
-        {this.props.children}
-    </TouchableOpacity>
-        <Modal
-        transparent={true}
-        visible={this.state.visible}
-        onRequestClose={() => onClose}
-    >
-    <TouchableOpacity
-        style={[styles.container, {backgroundColor: this.props.backdropColor}]}
-        onPress={() => this.close()}
-    >
-    <MaterialIcons
-        name={'arrow-drop-up'}
-        size={this.props.arrowSize}
-        style={[styles.arrow, {marginTop: this.props.layoutVal ? (this.props.layoutVal + this.props.interval) : this.props.interval}]}
-        />
-        <View style={[this.props.style,styles.diaLoginContent]}>
-        {this.getContent(this.props.content)}
-    </View>
-        </TouchableOpacity>
-        </Modal>
-        </View>
-    )
+                <TouchableOpacity
+                    onPress={() => this.show()}
+                >
+                    {this.props.children}
+                </TouchableOpacity>
+                <Modal
+                    transparent={true}
+                    visible={this.state.visible}
+
+                    onRequestClose={() => onClose}
+                >
+                    <TouchableOpacity
+                        style={[styles.container, {
+                            backgroundColor: this.props.backdropColor,
+                            position: 'relative'
+                        }]}
+                        onPress={() => this.close()}
+                    >
+                        <View style={{
+                            position: 'absolute',
+                            top: this.props.layoutVal ? (this.props.layoutVal + this.props.interval) : this.props.interval,
+                            left:0,
+                            right:0,
+                            justifyContent:this.props.positionStyle === "center" ? 'center' : this.props.positionStyle === 'left' ? 'flex-start' : 'flex-end',
+                            alignItems: this.props.positionStyle === "center" ? 'center' : this.props.positionStyle === 'left' ? 'flex-start' : 'flex-end',
+                            paddingLeft: this.props.paddingInterval,
+                            paddingRight: this.props.paddingInterval
+                        }}>
+                            <View style={[styles.arrowCon, {
+                                justifyContent:this.props.positionStyle === "center" ? 'center' : this.props.positionStyle === 'left' ? 'flex-start' : 'flex-end'
+                            }]}>
+                                <MaterialIcons
+                                    name={'arrow-drop-up'}
+                                    size={this.props.arrowSize}
+                                    style={[styles.arrow,{
+                                        marginLeft: 0,
+                                        marginRight: 0
+                                    }]}
+                                />
+                            </View>
+
+                            <View
+                                style={[this.props.style,styles.diaLoginContent, {maxWidth: this.props.maxWidth, padding: this.props.contentPadding}]}
+                            >
+                                {this.getContent(this.props.content)}
+                            </View>
+                        </View>
+                    </TouchableOpacity>
+                </Modal>
+            </View>
+        )
     }
 }
 const styles = StyleSheet.create({
@@ -80,15 +119,18 @@ const styles = StyleSheet.create({
     arrow: {
         color: '#fff',
         padding: 0,
-        margin: -15
+        margin: -15,
+        marginTop: 0
     },
     diaLoginContent: {
         backgroundColor: '#fff',
         borderRadius: 3,
-        paddingTop: 3,
-        paddingBottom: 3,
         marginRight: 3,
-        padding: 5
+    },
+    arrowCon: {
+        width:'100%',
+        height:20,
+        alignItems: 'center',
+        flexDirection:'row'
     }
 })
-

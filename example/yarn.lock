@@ -5437,10 +5437,10 @@ react-is@^16.12.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.9.0:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.0.tgz#0f37c3613c34fe6b37cd7f763a0d6293ab15c527"
   integrity sha512-GFMtL0vHkiBv9HluwNZTggSn/sCyEt9n02aM0dSAjGGyqyNlAyftYm4phPxdvCigG15JreC5biwxCgTAJZ7yAA==
 
-react-native-easy-dialog@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/react-native-easy-dialog/-/react-native-easy-dialog-1.1.0.tgz#f7a0a959e88af722d003710c9950821d3574307e"
-  integrity sha512-rpOOLg6p5EohQe9At8TzXoFsENh+IPZFdKg4pBpeCWQJr2Xn9hYAvCwKW8Mya3vdiPVc4mIdpA79K3I63FjMwg==
+react-native-easy-dialog@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/react-native-easy-dialog/-/react-native-easy-dialog-1.1.1.tgz#0d481feb2743945bbf9603c68cb0a446972c3165"
+  integrity sha512-qf2miMcsW+BRSsfyONkOLzf0vJUFBfWkKlffkxkW2qHEk+A/0Ayp81PXXE7MaQtKHkb1PYHNkIO2XS28cDLiQQ==
   dependencies:
     prop-types "^15.7.2"
     react-native-vector-icons "^6.6.0"
